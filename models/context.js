@@ -10,6 +10,14 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING
   }, {});
   Context.associate = function(models) {
+    Context.hasMany(models.Task, {
+      foreignKey: 'ContextId',
+      onDelete: 'CASCADE'
+    });
+    Context.belongsTo(models.User, {
+      foreignKey: 'ContextId',
+      onDelete: 'CASCADE'
+    });
     // associations can be defined here
   };
   return Context;

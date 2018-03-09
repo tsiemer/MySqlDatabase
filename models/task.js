@@ -21,6 +21,10 @@ module.exports = (sequelize, DataTypes) => {
     description: DataTypes.TEXT
   }, {});
   Task.associate = function(models) {
+    Task.belongsTo(models.Context, {
+      foreignKey: 'ContextId',
+      onDelete: 'CASCADE'
+    });
     // associations can be defined here
   };
   return Task;

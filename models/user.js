@@ -17,6 +17,11 @@ module.exports = (sequelize, DataTypes) => {
     },
   }, {});
   User.associate = function(models) {
+    console.log("Running the user has many context code!");
+    User.hasMany(models.Context, {
+      foreignKey: 'UserId',
+      onDelete: 'CASCADE'
+    });
     // associations can be defined here
   };
   return User;
