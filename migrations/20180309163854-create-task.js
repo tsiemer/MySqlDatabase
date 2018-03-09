@@ -4,18 +4,19 @@ module.exports = {
     return queryInterface.createTable('Tasks', {
       id: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4
       },
       name: {
-        type: Sequelize.STRING
-      },
-      done: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.STRING,
+        allowNull: false
       },
       description: {
         type: Sequelize.TEXT
+      },
+      done: {
+        type: Sequelize.BOOLEAN
       },
       createdAt: {
         allowNull: false,
